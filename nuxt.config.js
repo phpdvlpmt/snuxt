@@ -30,7 +30,13 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtclub/supabase',
   ],
+
+  supabase: {
+		url: 'https://rwmqpbelvinsgfvxujkx.supabase.co',
+		key: process.env.KEY,
+	},
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -40,6 +46,7 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -48,7 +55,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: 'cs'
     }
   },
 
@@ -57,5 +64,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+ // ssr: false 
+  
 }
