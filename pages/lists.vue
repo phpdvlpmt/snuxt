@@ -21,7 +21,7 @@
         List
       </h1>
       <div>
-        <div>Sort by ID</div>
+        <div>Sort by id</div>
         <div @click="asc()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
