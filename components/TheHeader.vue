@@ -26,6 +26,11 @@
         class="ml-2 hover:text-green-300 transition-all delay-150"
         >Lists</NuxtLink
       >
+      <NuxtLink
+        to="/example"
+        class="ml-2 hover:text-green-300 transition-all delay-150"
+        >Symboly</NuxtLink
+      >
     </div>
     <div class="flex items-center">
       <div v-if="$store.state.isAuthenticated" class="text-bold text-white">
