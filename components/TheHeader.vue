@@ -1,6 +1,8 @@
 <template>
   <header
     class="
+    fixed
+      inset-x-0
       px-12
       bg-gradient-to-r
       from-purple-800

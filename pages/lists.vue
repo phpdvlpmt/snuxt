@@ -85,9 +85,11 @@
               /></svg
           ></span>
           <input
+          id="search"
             v-model="search"
             type="search"
             class="
+            
               shadow
               appearance-none
               border

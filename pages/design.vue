@@ -1,12 +1,19 @@
 <template>
   <section>
       <transition name="slide">
-     <div v-if="isOpen" class=" bg-white shadow-lg  w-64  min-h-screen  fixed flex">
-<span @click="isOpen = !isOpen" class="ml-auto">       
-<svg  xmlns="http://www.w3.org/2000/svg"  class="h-5 w-5 cursor-pointer m-1"  viewBox="0 0 20 20" fill="currentColor">
+     <div v-if="isOpen" class=" bg-white shadow-lg  w-64  min-h-screen  fixed ">
+<span  class="ml-auto" @click="isOpen = !isOpen">       
+<svg  xmlns="http://www.w3.org/2000/svg"  class="h-5 w-5 cursor-pointer m-1 ml-auto"  viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
 </svg>
-</span>   
+</span>
+<div class="bg-green-200">
+  <ul class="px-4 space-y-4 bg-red-800"  >
+    <li v-for="nav in navigation" :key="nav.display" @click="close">
+      <nuxt-link :to="nav.link">{{ nav.display}}  </nuxt-link>
+    </li>
+  </ul>
+</div>   
      </div>
      </transition>
      <div class="p-2">
@@ -16,8 +23,8 @@
 </svg>
 </span>
     </div> 
-    <div class="grid grid-cols-3 gap-4 p-2">
-        <div class="w-full bg-yellow-200 ">
+    <div class="grid md:grid-cols-3 gap-4 p-2" >
+        <div class="w-full bg-yellow-200 "  >
             <ul>
                 <li v-for="l in list" :key="l.id">
                     {{ l.name }}
@@ -94,7 +101,7 @@
           </div>
       </form>
         </div>
-        <div class="w-full bg-yellow-200 h-64">
+        <div id="ok" class="w-full bg-yellow-200 h-64">
             ok
         </div>
     </div>
@@ -105,15 +112,6 @@
 <script>
 export default {
 layout: 'layout',
-data() {
-    return {
-        isOpen: false,
-        list:[],
-        cls: '',
-        pupil: '',
-        
-    }
-},
 async asyncData({ $supabase }) {
     const { data } = await $supabase
       .from('pupils')
@@ -124,6 +122,29 @@ async asyncData({ $supabase }) {
       
     }
   },
+data() {
+    return {
+        isOpen: false,
+        list:[],
+        cls: '',
+        pupil: '',
+        navigation:[
+          { display: 'Home', link: '/'},
+          { display: 'List', link: '/lists'},
+          { display: 'Pupils', link: '/pupils'},
+          { display: 'Example', link: '/example'},
+          { display: 'Design', link: '#ok'}
+          ]
+        
+    }
+},
+watch:{
+'$route' () {
+  this.isOpen = false
+  
+}
+},
+
   async mounted() {
     await this.subscribeLists();
   },
@@ -156,7 +177,11 @@ async asyncData({ $supabase }) {
     unsubscribePosts() {
       this.$supabase.removeSubscription(this.subscribeLists);
     },
+    close(){
+   this.isOpen = !this.isOpen
+  }
   },
+  
 }
 </script>
 

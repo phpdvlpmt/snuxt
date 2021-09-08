@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-2 px-12">
+  <section class=" h-screen flex items-center justify-center">
     <div v-if="error" class="w-full max-w-xs text-red-800">{{ error }}</div>
     <div class="w-full max-w-xs">
       <form
