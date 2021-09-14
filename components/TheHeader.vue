@@ -31,6 +31,11 @@
         class="ml-2 hover:text-green-300 transition-all delay-150"
         >Symboly</NuxtLink
       >
+      <NuxtLink
+        to="/vl"
+        class="ml-2 hover:text-green-300 transition-all delay-150"
+        >VL</NuxtLink
+      >
     </div>
     <div class="flex items-center">
       <div v-if="$store.state.isAuthenticated" class="text-bold text-white">

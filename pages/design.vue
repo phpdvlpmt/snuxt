@@ -23,17 +23,17 @@
 </svg>
 </span>
     </div> 
-    <div class="grid md:grid-cols-3 gap-4 p-2" >
-        <div class="w-full bg-yellow-200 "  >
+    <div class="lg:grid lg:grid-cols-2 gap-4 p-4" >
+        <div class="w-full bg-white p-4 shadow-xl rounded-lg"  >
             <ul>
                 <li v-for="l in list" :key="l.id">
                     {{ l.name }}
                 </li>
             </ul>
         </div>
-        <div class="w-full bg-yellow-200 h-64">
+        <div class="w-full bg-white h-64 shadow-md rounded">
             <form
-        class="bg-white shadow-md rounded pt-2 px-4 pb-4 mb-4"
+        class="bg-white  pt-2 px-4 pb-4 mb-4"
         @submit.prevent="addNewPupil()"
       >
        <label class="block text-gray-700 text-sm font-bold mb-2">
@@ -101,9 +101,7 @@
           </div>
       </form>
         </div>
-        <div id="ok" class="w-full bg-yellow-200 h-64">
-            ok
-        </div>
+       
     </div>
      
   </section>
